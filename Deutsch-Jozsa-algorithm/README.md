@@ -193,8 +193,8 @@ def dj_algorithm(Oracle, n):
 
     return qc
 
-algo = dj_algorithm(qc_gate, 4)
-algo.draw()
+dj_circuit = dj_algorithm(qc_gate, 4)
+dj_circuit.draw()
 
 ```
 
@@ -202,58 +202,12 @@ algo.draw()
 
 ```python
 
-transpiled_dj_circuit = transpile(algo, aer_sim)
+transpiled_dj_circuit = transpile(dj_circuit, aer_sim)
 qobj = assemble(transpiled_dj_circuit)
 results = aer_sim.run(qobj).result()
 answer = results.get_counts()
 plot_histogram(answer)
 ```
-
-<style>
-.button {
-  border: none;
-  color: white;
-  padding: 4px 8px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  transition-duration: 0.2s;
-  cursor: pointer;
-}
-.iqx-button {
-  background-color: #0f62fe; 
-  color: white; 
-}
-.iqx-button:hover {
-  background-color: #0043ce;
-  color: white;
-}
-</style>
-
-<style>
-.button {
-  border: none;
-  color: white;
-  padding: 4px 8px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  transition-duration: 0.2s;
-  cursor: pointer;
-}
-.iqx-button {
-  background-color: #0f62fe; 
-  color: white; 
-}
-.iqx-button:hover {
-  background-color: #0043ce;
-  color: white;
-}
-</style>
 
 ```python
 
